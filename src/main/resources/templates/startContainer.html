@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <style>
+
+        .row{
+            margin-top: 100px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+	
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand" href="#">EasyLab</a>
+        <span th:text="${session.user_name}"> : hello</span>
+        <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+      </nav>
+
+
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-4">
+                    <div class="before" id="before">
+                        <h1><b>Are you ready!!!</b></h1>
+                        <p>Start button to start the Container and Stop button to start the container</p>
+                        <a  value="Start" class="btn btn-success" th:href="@{/start}">Start</a>
+                        <a  value="Start" class="btn btn-danger" th:href="@{/stop}">Stop</a>
+                        
+                    </div>
+                                
+                    
+              </div>
+
+              <div class="col-sm-8">
+					
+					<h1><b>Details</b></h1>
+					<img th:src="@{/images/docker_start.png}" alt="" width="300px">
+                    <h3>State : Started</h3>
+					<p>This is a temporary lab, all the data will be deleted once the lab is closed.<br>
+					<i>Once you start the lab you'll see the details below - </i><br><br>
+					
+						Username : <span th:text="${username}"></span> <br>
+						Password : <span th:text="${password}"></span> <br>
+						TCP  : <a><span th:text="${url}"></span> </a><br><br>
+						
+						example : tcp://8.ngrok.io:12345, here 12345 is the port number <br>
+						<code>ssh username@8.ngrok.io -p 12345</code>
+					</p> <br>
+              </div>
+
+          </div>
+      </div>
+      
+      
+
+</body>
+</html>

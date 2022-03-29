@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyLab</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <style>
+
+        td{
+            padding: 10px;
+        }
+
+        .upper-form{
+            margin-top: 100px;
+        }
+
+        .field{
+            padding: 20px;
+        }
+
+        .navbar{
+            padding: 20px;
+        }
+        
+        h1{
+        font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand"><h3>EasyLab</h3></a>
+        <form class="form-inline" th:action="@{/login}" th:object="${user}" method="post">
+          <input th:field="*{email}" class="form-control mr-sm-2 field" type="email" placeholder="Email" >
+          <input th:field="*{password}" type="password" placeholder="Password" class="form-control mr-sm-2 field"> 
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+        </form>
+      </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 upper-form">
+                <h1><b>Get started</b></h1>
+                <p>Cloud lab made up of Docker Container<br><i>A Project for FUN!! <b>(Temporary)</b></i></p>
+                <form th:action="@{/registered}" th:object="${user}" method="post">
+                    <table class="table-light">
+                        <tr>
+                            <td><input th:field="*{email}" type="email" placeholder="Email" class="form-control field" size="30"></td>
+                        </tr>
+                        </tr>
+                        <td><input th:field="*{password}" type="password" placeholder="password" class="form-control field"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="Register" class="btn btn-primary"></td>
+                        </tr>
+                        </tr>
+                    </table>
+                </form>
+                <p>When you hit logout button the lab will also deleted.</p>         
+            </div>
+
+            <div class="col-sm-6 upper-form">
+                <div>
+                    <img th:src="@{/images/docker.png}" alt="" width="400px">
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
